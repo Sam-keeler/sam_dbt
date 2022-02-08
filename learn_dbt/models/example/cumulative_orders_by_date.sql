@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='view') }}
 
 with daily as
 (select o_orderdate, sum(o_totalprice) as daily_sales
