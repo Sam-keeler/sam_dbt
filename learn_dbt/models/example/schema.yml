@@ -33,8 +33,18 @@ models:
       - name: accum_sales
         tests:
           - unique
-  - name: dates
+          - not_null
   - name: incremental_time
 
-
-          - not_null
+sources:
+  - name: sample
+    database: snowflake_sample_data
+    schema: tpch_sf1
+    tables:
+      - name: customer
+        columns:
+          - name: c_custkey
+            tests:
+              - unique
+              - not_null
+      - name: orders
